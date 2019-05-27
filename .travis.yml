@@ -1,0 +1,14 @@
+language: node_js
+node_js: node
+cache:
+  directories:
+  - node_modules
+env:
+- CI=true
+deploy:
+  provider: heroku
+  api_key:
+    secure: k7a9JHO0lYHeuX/WPEB8PH1+PG4ZG/sAnKggagjXRx3u4po+iN29yKCGyXtbRqurkbA/T8nTkISDLEbSafqWVk0AfUXbjff2uF+bny5j0mlcgpz9UaAlYMk8GFxuros0feddci54fMlF6DbDq7643V8IpgyvVsbyBr+el+IfdKXcuW9DOi4K3IvfppdlSYsRnFK5XcXP7Z2CJdR3iXKdaOa1XXAJDy8jXrke8wx5er7dD37tgrYkqt3uVt06Hi8LEGC8ZyYEjf7dbG60Puu5c0Hm0umH055nne2mZokfjGi9ahVcr9xHZCcEXu7H5hkbnrb2JEWFCEVSgOebgfPbEMi37aGYNamt2d2mNBg+LTXX1j+nyRIulieQEW3ARZqD+3j/v/Y3XKaaxsn7Is2dsfIE28Nt9YFlHtdi41FiChH9FaRvTP1Q11sXDSbVoku3KX3cUDK10LR7IQPAmIupmHjsTz0QvCvOwewWmM2DS/yLugEsh7cS44g3vvyRzPVgl+WKX+qdd+avts4EX6zgGdweX1SN9Z2kKdXjRg9FqRE5s0n7wwP90sGN26qNrMwo5tKyP7A0IiWNSjIltvN03icNA7+SBLYLkIdYE6zl/ApK4EwmLxsmZ7S7daGUbwtGiHNiyOJPKtfHZputvvqi0wFvsUFDXAQDOnIpz1mhQik=
+  app: fierce-cliffs-97625
+  on:
+    repo: sanadler/mytube-client
