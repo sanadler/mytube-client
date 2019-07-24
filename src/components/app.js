@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import Home from './home';
 import SignUp from './signup';
-import SignIn from './signin';
+import LogIn from './login';
 import MyVideos from './myVideos';
 import Videos from './videos';
 import Footer from './footer';
@@ -18,7 +18,7 @@ export default function App(props) {
                 <main>
                     <Route exact path="/" component={Home} />
                     <Route exact path="/signup" component={SignUp} />
-                    <Route exact path="/signin" component={SignIn} />
+                    <Route exact path="/login" component={LogIn} />
                     <Route exact path="/my-videos" component={MyVideos} />
                     <Route exact path="/videos" component={Videos} />
                 </main>

@@ -2,9 +2,50 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { sign } from 'crypto';
+import {API_BASE_URL} from '../config';
 
 
 export default class Home extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+        lists: [],
+        error: null,
+        loading: false
+    };
+}
+  componentDidMount() {
+    this.loadPage();
+}
+loadPage() {
+  this.setState({
+      error: null,
+      loading: true
+  });
+  return fetch(`${API_BASE_URL}/videos`)
+  .then(res => {
+      if (!res.ok) {
+          return Promise.reject(res.statusText);
+      }
+      console.log(res.json());
+      return res.json();
+  })
+  .then(board =>
+      this.setState({
+          lists: board.lists,
+          loading: false
+      })
+      
+  )
+  .catch(err =>
+      this.setState({
+          error: 'Could not load board',
+          loading: false
+      })
+  );
+}
+
     render(){
         return  (
           <div className="LandingPage">
