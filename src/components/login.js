@@ -4,6 +4,8 @@ import Input from './input';
 import {login} from '../actions/auth';
 import {required, nonEmpty} from '../validators';
 
+import './login.css';
+
 export class LogIn extends React.Component {
     onSubmit(values) {
         return this.props.dispatch(login(values.username, values.password));
@@ -19,6 +21,8 @@ export class LogIn extends React.Component {
             );
         }
         return (
+            <div className = "login-page">
+            <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
             <form
                 className="login-form"
                 onSubmit={this.props.handleSubmit(values =>
@@ -31,6 +35,7 @@ export class LogIn extends React.Component {
                     type="text"
                     name="username"
                     id="username"
+                    className="form-control"
                     validate={[required, nonEmpty]}
                 />
                 <label htmlFor="password">Password</label>
@@ -39,15 +44,19 @@ export class LogIn extends React.Component {
                     type="password"
                     name="password"
                     id="password"
+                    className="form-control"
                     validate={[required, nonEmpty]}
                 />
-                <button disabled={this.props.pristine || this.props.submitting}>
+                <button className="login" disabled={this.props.pristine || this.props.submitting}>
                     Log in
                 </button>
             </form>
+            </div>
         );
     }
 }
+
+
 
 export default reduxForm({
     form: 'login',

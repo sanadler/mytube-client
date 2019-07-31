@@ -5,6 +5,7 @@ import SignUp from './signup';
 import LogIn from './login';
 import MyVideos from './myVideos';
 import Videos from './videos';
+import ViewVideo from './viewVideo';
 import Footer from './footer';
 import Nav from './nav';
 
@@ -21,6 +22,7 @@ export default function App(props) {
                     <Route exact path="/login" component={LogIn} />
                     <Route exact path="/my-videos" component={MyVideos} />
                     <Route exact path="/videos" component={Videos} />
+                    <Route exact path="/view-video" component={ViewVideo} />
                 </main>
                 <Footer/>
             </div>
