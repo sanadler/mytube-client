@@ -1,0 +1,24 @@
+.header{
+    background-image: url("../images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 12em;
+    color: white;
+    margin-top: -1em;
+  }
+  .homepage-scroll-arrow{
+    margin-top: 10em;
+  }
+  
+  .homepage-header { 
+    font-family: "Allerta Stencil"; 
+    font-size: 150px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 700; 
+    line-height: 26.4px;
+  }
+
+  .home-lead{
+    margin-top: 9em;
+  }

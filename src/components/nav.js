@@ -30,7 +30,7 @@ class Nav extends React.Component {
     }
     else{
       return (
-        <Menu>
+        <Menu className="nav-bar">
             <Menu.Item name='signUp' onClick={() => this.props.history.push(`/signup`)}>
             Sign Up
           </Menu.Item>

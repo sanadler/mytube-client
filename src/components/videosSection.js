@@ -1,7 +1,6 @@
 import React from 'react';
 import './videos.css';
 import Video from './video';
-import {Button, Header, Icon, Image, Modal} from 'semantic-ui-react';
 
 export default class VideosSection extends React.Component{
   constructor(props) {
@@ -13,8 +12,7 @@ export default class VideosSection extends React.Component{
           error: null,
           loading: false,
           allVideos: true,
-          myVideos: false,
-          likes: []
+          myVideos: false
       };
   }
     componentDidMount() {
@@ -60,7 +58,7 @@ const apiKey = "AIzaSyAmP7VkJjDa4irNYr3ov75Hoby5BWAQ-ME";
     this.loadPage(previous);
   }
   
-  saveLikes(id){
+  handleLike(id){
     document.getElementById(id).classList.add('fill-button');
 
   }
@@ -85,18 +83,23 @@ const apiKey = "AIzaSyAmP7VkJjDa4irNYr3ov75Hoby5BWAQ-ME";
         const next = this.state.data.nextPageToken;
         const previous = this.state.data.prevPageToken;
         body = (
-            <div className="myVideos">
+            <div className="all-videos">
                 <main role="main">
                     <div className="album">
                         <div className="container">
                         <div className="row">{videos.map(video => 
                         
-                        <Video onClick={e => this.saveLikes(video.id)} key={video.id} allVideos={allVideos} myVideos={myVideos} passVideo={video}/>)}
+                        <Video onClick={e => this.handleLike(video.id)} key={video.id} allVideos={allVideos} myVideos={myVideos} passVideo={video}/>)}
+
+                        </div>
+                        <div className="row">
+                         <div className="col-12">                        
+                            { previous ? <button type="button" className="site-buttons prev" onClick={() => this.handlePrevious(previous)}>Previous</button> : null }
+                            { next ? <button type="button" className="site-buttons next" onClick={() => this.handleNext(next)}>Next</button> : null }
+                        </div>
 
                         </div>
 
-                        { previous ? <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => this.handlePrevious(previous)}>Previous</button> : null }
-                        { next ? <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => this.handleNext(next)}>Next</button> : null }
                         </div>
                     </div>
 

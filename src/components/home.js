@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import About from './about';
 import scroll from "../images/scroll-arrow.png";
+import './home.css';
 
 
 

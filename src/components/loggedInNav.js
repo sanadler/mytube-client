@@ -7,7 +7,7 @@ import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../localStorage';
 import icon from "../images/nav-icon.png";
 
-import { Menu, Image, Search } from 'semantic-ui-react';
+import { Menu, Image } from 'semantic-ui-react';
 
 export class LoggedInNav extends React.Component {
   

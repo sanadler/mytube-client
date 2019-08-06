@@ -1,10 +1,10 @@
 import React from 'react';
 import './videos.css';
 import {API_BASE_URL} from '../config';
+import { withRouter } from "react-router-dom";
 import requiresLogin from './requiresLogin';
 import {connect} from 'react-redux';
 import Video from './video';
-import VideosSection from './videosSection';
 
 export class MyVideos extends React.Component{
     constructor(props) {
@@ -33,7 +33,6 @@ export class MyVideos extends React.Component{
           }
           return res.json();
       })
-     //.then(responseJson => console.log(responseJson))
       .then(responseJson =>
           this.setState({
               videos: responseJson.videos,
@@ -68,7 +67,28 @@ export class MyVideos extends React.Component{
           const myVideos = this.state.myVideos;
            console.log(videos);
            if(videos.length === 0){
-             body = (<p className="myVideos">Start liking videos!</p>);
+             body = (
+              <div className="myVideos">
+              <main role="main">
+  
+              <section className="my-videos jumbotron text-center">
+              <div className="container video-header">
+                  <h1 className="page-header jumbotron-heading">{this.props.firstName}'s Videos</h1>
+                  <p className="lead">All your liked videos in one place!</p>
+              </div>
+              </section>
+              <div className="album">
+      <div className="container">
+  
+        <div className="row"><button type="button" id="all-videos" onClick={() => this.props.history.push(`/videos`)} className="site-buttons">Start Liking Videos!</button>
+        </div>
+      </div>
+    </div>
+  
+  </main>
+  </div>
+             
+             );
            }
         else{
           body = (
@@ -87,7 +107,6 @@ export class MyVideos extends React.Component{
       <div className="row">{videos.map(video => 
       <Video key={video.id} allVideos={allVideos} myVideos={myVideos} passVideo={video}/>)}
       </div>
-        {/* <VideosSection className="left col-4"/> */}
     </div>
   </div>
 
@@ -115,4 +134,4 @@ export class MyVideos extends React.Component{
     };
 };
 
-export default requiresLogin()(connect(mapStateToProps)(MyVideos));
+export default requiresLogin()(withRouter((connect(mapStateToProps)(MyVideos))));

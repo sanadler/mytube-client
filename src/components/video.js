@@ -1,8 +1,7 @@
 import React from 'react';
 import Iframe from 'react-iframe';
 import {API_BASE_URL} from '../config';
-import {Button, Header, Icon, Image, Modal} from 'semantic-ui-react';
-import { MdLinkedCamera } from 'react-icons/md';
+import {Button, Modal} from 'semantic-ui-react';
 
 export default class Video extends React.Component{
     constructor(props) {
@@ -10,7 +9,7 @@ export default class Video extends React.Component{
     
         this.state = {
             updating: false,
-            likes: []
+            likedUsers: []
         };
     }
 
@@ -30,7 +29,6 @@ export default class Video extends React.Component{
       })
     })
       .then(res => res.json())
-      //.then(data => console.log(data)); 
       .catch(error => alert(error))
     }
 
@@ -102,7 +100,7 @@ export default class Video extends React.Component{
                 position="relative"/>
                   <div className="d-flex justify-content-between align-items-center">
                     <div className="btn-group">
-                    <Modal trigger={ <button type="button" className="btn btn-sm btn-outline-secondary">View</button>}>
+                    <Modal trigger={ <button type="button" className="btn btn-outline-secondary">View</button>}>
                         <Modal.Header>{this.props.passVideo.snippet.localized.title}</Modal.Header>
                         <Modal.Content image scrolling>
                           <Iframe height="190px" size='medium' src={`http://www.youtube.com/embed/${this.props.passVideo.id}`} wrapped />
@@ -112,7 +110,7 @@ export default class Video extends React.Component{
                           </Modal.Description>
                         </Modal.Content>
                       </Modal>
-                      <button type="button" id={this.props.passVideo.id} onClick={() => this.handleAdd(this.props.passVideo)} className="btn btn-sm btn-outline-secondary">Like</button>
+                      <button type="button" id={this.props.passVideo.id} onClick={() => this.handleAdd(this.props.passVideo)} className="btn btn-outline-secondary">Like</button>
                     </div>
                   </div>
                 </div>
@@ -132,7 +130,7 @@ export default class Video extends React.Component{
                 position="relative"/>
                   <div className="d-flex justify-content-between align-items-center">
                     <div className="btn-group">
-                      <Modal trigger={ <button type="button" className="btn btn-sm btn-outline-secondary">View</button>}>
+                      <Modal trigger={ <button type="button" className="btn btn-outline-secondary">View</button>}>
                         <Modal.Header>{this.props.passVideo.title}</Modal.Header>
                         <Modal.Content image scrolling>
                           <Iframe height="190px" size='medium' src={`http://www.youtube.com/embed/${this.props.passVideo.videoId}`} wrapped />
@@ -142,7 +140,7 @@ export default class Video extends React.Component{
                           </Modal.Description>
                         </Modal.Content>
                       </Modal>
-                      <Modal trigger={ <button type="button" className="btn btn-sm btn-outline-secondary">Update</button>}>
+                      <Modal trigger={ <button type="button" className="btn btn-outline-secondary">Update</button>}>
                         <Modal.Header>
                           <label>Video Title
                         <input placeholder={this.props.passVideo.title} type="text" name="update-title" id="update-title" required/>
