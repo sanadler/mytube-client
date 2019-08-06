@@ -1,7 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { sign } from 'crypto';
+import About from './about';
+import scroll from "../images/scroll-arrow.png";
 
 
 
@@ -10,38 +10,19 @@ export default class Home extends React.Component {
 
     render(){
         return  (
-          <div className="LandingPage">
+          <div className="home-page">
             <main role="main">
               <div className="header">
                 <section className="jumbotron text-center">
             <div className="container">
-                <h1 className="jumbotron-heading">MyTube</h1>
-                <p className="lead text-muted">Find and watch your favorite videos any time!</p>
+                <h1 className="homepage-header jumbotron-heading">MyTube</h1>
+                <p className="home-lead">Find and watch your favorite videos any time!</p>
+                <img className="homepage-scroll-arrow" alt="presentation" height="50px" width="50px" src={scroll}></img>
             </div>
             </section>
               </div>
-              <div className="body">
-                <section>
-                  <header>
-                      <h3>Find your Videos</h3>
-                  </header>
-                  <p>[<em>placeholder for screenshot</em>]</p>
-                  <p> find placholder</p>
-                </section>
-                <section>
-                  <header>
-                      <h3>Save your Videos</h3>
-                  </header>
-                  <p>[<em>placeholder for screenshot</em>]</p>
-                  <p>save placeholder</p>
-                </section>
-                <section>
-                  <header>
-                      <h3>Watch your Videos</h3>
-                  </header>
-                  <p>[<em>placeholder for screenshot</em>]</p>
-                  <p>watch placeholder</p>
-                </section>
+              <div className="home-page-info">
+                <About />
               </div>
             </main>
           </div>

@@ -1,64 +1,24 @@
 import React from 'react';
-import {Field, reduxForm, focus} from 'redux-form';
-import Input from './input';
-import {login} from '../actions/auth';
-import {required, nonEmpty} from '../validators';
+import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
 
-import './login.css';
+import LoginForm from './loginForm';
 
-export class LogIn extends React.Component {
-    onSubmit(values) {
-        return this.props.dispatch(login(values.username, values.password));
+export function LogIn(props) {
+    // If we are logged in redirect straight to the user's dashboard
+    if (props.loggedIn) {
+        return <Redirect to="/my-videos" />;
     }
 
-    render() {
-        let error;
-        if (this.props.error) {
-            error = (
-                <div className="form-error" aria-live="polite">
-                    {this.props.error}
-                </div>
-            );
-        }
-        return (
-            <div className = "login-page">
-            <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
-            <form
-                className="login-form"
-                onSubmit={this.props.handleSubmit(values =>
-                    this.onSubmit(values)
-                )}>
-                {error}
-                <label htmlFor="username">Username</label>
-                <Field
-                    component={Input}
-                    type="text"
-                    name="username"
-                    id="username"
-                    className="form-control"
-                    validate={[required, nonEmpty]}
-                />
-                <label htmlFor="password">Password</label>
-                <Field
-                    component={Input}
-                    type="password"
-                    name="password"
-                    id="password"
-                    className="form-control"
-                    validate={[required, nonEmpty]}
-                />
-                <button className="login" disabled={this.props.pristine || this.props.submitting}>
-                    Log in
-                </button>
-            </form>
-            </div>
-        );
-    }
+    return (
+        <div className="sign-up">
+            <LoginForm />
+        </div>
+    );
 }
 
+const mapStateToProps = state => ({
+    loggedIn: state.auth.currentUser !== null
+});
 
-
-export default reduxForm({
-    form: 'login',
-    onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'username'))
-})(LogIn);
+export default connect(mapStateToProps)(LogIn);

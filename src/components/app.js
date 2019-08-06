@@ -1,31 +1,66 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {Route, withRouter} from 'react-router-dom';
 import Home from './home';
 import SignUp from './signup';
 import LogIn from './login';
 import MyVideos from './myVideos';
-import Videos from './videos';
-import ViewVideo from './viewVideo';
+import Videos from './allVideos';
 import Footer from './footer';
 import Nav from './nav';
+import {refreshAuthToken} from '../actions/auth';
+import {connect} from 'react-redux';
 
 import './App.css';
 
-export default function App(props) {
-    return (
-        <Router>
+export class App extends React.Component {
+    componentDidUpdate(prevProps) {
+        if (!prevProps.loggedIn && this.props.loggedIn) {
+            // When we are logged in, refresh the auth token periodically
+            this.startPeriodicRefresh();
+        } else if (prevProps.loggedIn && !this.props.loggedIn) {
+            // Stop refreshing when we log out
+            this.stopPeriodicRefresh();
+        }
+    }
+
+    componentWillUnmount() {
+        this.stopPeriodicRefresh();
+    }
+
+    startPeriodicRefresh() {
+        this.refreshInterval = setInterval(
+            () => this.props.dispatch(refreshAuthToken()),
+            60 * 60 * 1000 // One hour
+        );
+    }
+
+    stopPeriodicRefresh() {
+        if (!this.refreshInterval) {
+            return;
+        }
+
+        clearInterval(this.refreshInterval);
+    }
+
+    render() {
+        return (
             <div className="app">
-            <Nav />
-                <main>
-                    <Route exact path="/" component={Home} />
+                <Nav />
+                <Route exact path="/" component={Home} />
                     <Route exact path="/signup" component={SignUp} />
                     <Route exact path="/login" component={LogIn} />
                     <Route exact path="/my-videos" component={MyVideos} />
                     <Route exact path="/videos" component={Videos} />
-                    <Route exact path="/view-video" component={ViewVideo} />
-                </main>
-                <Footer/>
+                <Footer />
             </div>
-        </Router>
-    );
+        );
+    }
 }
+
+const mapStateToProps = state => ({
+    hasAuthToken: state.auth.authToken !== null,
+    loggedIn: state.auth.currentUser !== null
+});
+
+// Deal with update blocking - https://reacttraining.com/react-router/web/guides/dealing-with-update-blocking
+export default withRouter(connect(mapStateToProps)(App));

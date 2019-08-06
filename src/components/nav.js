@@ -1,13 +1,14 @@
 import React from 'react';
 import { Menu } from 'semantic-ui-react';
 import { withRouter } from "react-router-dom";
+import {connect} from 'react-redux';
+import LoggedInNav from './loggedInNav';
 
 class Nav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        activeItem: {},
-        loggedIn: false
+        activeItem: {}
     }
 }
 
@@ -21,49 +22,35 @@ class Nav extends React.Component {
 
   render() {
     const { activeItem } = this.state.activeItem;
-    const  loggedIn  = this.state.loggedIn;
-
-    if (!loggedIn){
+    
+    if (this.props.loggedIn){
       return (
-        <Menu>
-          <Menu.Item
-            name='login'
-            active={activeItem === 'login'}
-           onClick={() => this.handleItemClick && this.props.history.push(`/login`) }
-          >
-            Log In
-          </Menu.Item>
-  
-          <Menu.Item name='signUp' onClick={() => this.props.history.push(`/signup`)}>
-            Sign Up
-          </Menu.Item>
-        </Menu>
+        <LoggedInNav />
       )
     }
     else{
       return (
         <Menu>
-          <Menu.Item name='videos'  onClick={() => this.props.history.push(`/videos`)}>
-            All Videos
+            <Menu.Item name='signUp' onClick={() => this.props.history.push(`/signup`)}>
+            Sign Up
           </Menu.Item>
-
-          <Menu.Item name='myVideos'  onClick={() => this.props.history.push(`/my-videos`)}>
-            My Videos
-          </Menu.Item>
-
           <Menu.Item
-            name='signOut'
-           // active={activeItem === 'signOut'}
-           onClick={() => this.props.history.push(`/`)}
+            name='login'
+            active={activeItem === 'login'}
+           onClick={() =>  this.props.history.push(`/login`) &&  this.handleItemClick}
           >
-            Sign Out
+            Log In
           </Menu.Item>
-  
-
         </Menu>
       )
     }
     
   }
 }
-export default withRouter(Nav);
+
+const mapStateToProps = state => ({
+  loggedIn: state.auth.currentUser !== null
+});
+
+
+export default withRouter(connect(mapStateToProps)(Nav));

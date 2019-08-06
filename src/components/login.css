@@ -1,7 +1,7 @@
 
 html,
 body {
-  height: 100%;
+  min-height: 100%;
 }
 
 
@@ -62,4 +62,9 @@ input{
 
 .login:hover{
     background-color: rgba(0, 123, 255, 0.6);
+}
+
+.login-page{
+  padding-top: 12em;
+  padding-bottom: 12em;
 }

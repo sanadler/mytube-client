@@ -1,14 +1,19 @@
 import React from 'react';
 import './videos.css';
 import {API_BASE_URL} from '../config';
-import Iframe from 'react-iframe';
+import requiresLogin from './requiresLogin';
+import {connect} from 'react-redux';
+import Video from './video';
+import VideosSection from './videosSection';
 
-export default class MyVideos extends React.Component{
+export class MyVideos extends React.Component{
     constructor(props) {
         super(props);
     
         this.state = {
             videos: [],
+            allVideos: false,
+            myVideos: true,
             error: null,
             loading: false
         };
@@ -44,21 +49,7 @@ export default class MyVideos extends React.Component{
       );
     }
 
-    deleteVideo(id) {
-      return fetch(`${API_BASE_URL}/videos/${id}`, {
-              method: 'delete',
-              headers: {
-                  "Content-Type": "application/json"
-              },
-          })
-              .catch(error => alert(error))
-        
-    }
-
-   handleDelete(id){
-        this.deleteVideo(id);
-        window.location.reload();
-    }
+ 
 
     render(){
 
@@ -73,51 +64,39 @@ export default class MyVideos extends React.Component{
           );
       } else {
           const videos = this.state.videos;
-        //   const title = this.state.title;
+          const allVideos = this.state.allVideos;
+          const myVideos = this.state.myVideos;
            console.log(videos);
-        //  // console.log(description);
-        //   console.log(title);
+           if(videos.length === 0){
+             body = (<p className="myVideos">Start liking videos!</p>);
+           }
+        else{
           body = (
-              <div className="myVideos">
-              <main role="main">
-  
-              <section className="jumbotron text-center">
-              <div className="container">
-                  <h1 className="jumbotron-heading">All Videos</h1>
-                  <p className="lead text-muted">placeholder text for all videos</p>
-              </div>
-              </section>
-              <div className="album py-5 bg-light">
-      <div className="container">
-  
-        <div className="row">{videos.map(video => 
-        <div className="col-4">
-            <div className="card" key={video.videoId}>
-              <div className="card-body">
-            <Iframe url={`http://www.youtube.com/embed/${video.videoId}`}
-              id="my-frame"
-              className="iframe"
-              display="initial"
-              position="relative"/>
-                <div className="d-flex justify-content-between align-items-center">
-                  <div className="btn-group">
-                    <button type="button" className="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" id={video.id} onClick={() => this.handleDelete(video.id)} className="btn btn-sm btn-outline-secondary">Delete</button>
-                  </div>
-                </div>
-              </div>
+            <div className="myVideos">
+            <main role="main">
+
+            <section className="my-videos jumbotron text-center">
+            <div className="container video-header">
+                <h1 className="page-header jumbotron-heading">{this.props.firstName}'s Videos</h1>
+                <p className="lead">All your liked videos in one place!</p>
             </div>
-          </div>)}
-          <button type="button" className="btn btn-sm btn-outline-secondary">Next</button>
-  
-        </div>
+            </section>
+            <div className="album">
+    <div className="container">
+
+      <div className="row">{videos.map(video => 
+      <Video key={video.id} allVideos={allVideos} myVideos={myVideos} passVideo={video}/>)}
       </div>
+        {/* <VideosSection className="left col-4"/> */}
     </div>
-  
-  </main>
   </div>
-  
-          );
+
+</main>
+</div>
+
+        );
+        }
+
       }
           return (
               <div className="board">
@@ -128,3 +107,12 @@ export default class MyVideos extends React.Component{
   }
   
   }
+
+  const mapStateToProps = state => {
+    const {currentUser} = state.auth;
+    return {
+      firstName: `${currentUser.firstName}`
+    };
+};
+
+export default requiresLogin()(connect(mapStateToProps)(MyVideos));
