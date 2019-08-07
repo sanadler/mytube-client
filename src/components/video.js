@@ -1,6 +1,6 @@
 import React from 'react';
 import Iframe from 'react-iframe';
-import {API_BASE_URL} from '../config';
+import {API_BASE_URL} from '../config.js';
 import {Button, Modal} from 'semantic-ui-react';
 
 export default class Video extends React.Component{
@@ -167,11 +167,6 @@ export default class Video extends React.Component{
                 </div>
               </div>
             </div>)
-      }
-      else if (this.state.updating){
-        return(
-          <div>HOORAH!</div>
-        )
       }
         
     }

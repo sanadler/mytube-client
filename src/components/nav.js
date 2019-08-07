@@ -2,7 +2,7 @@ import React from 'react';
 import { Menu } from 'semantic-ui-react';
 import { withRouter } from "react-router-dom";
 import {connect} from 'react-redux';
-import LoggedInNav from './loggedInNav';
+import LoggedInNav from './loggedInNav.js';
 
 class Nav extends React.Component {
   constructor(props) {

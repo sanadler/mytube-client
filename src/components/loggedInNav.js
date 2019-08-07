@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import requiresLogin from './requiresLogin';
+import requiresLogin from './requiresLogin.js';
 import { withRouter } from "react-router-dom";
-import {fetchProtectedData} from '../actions/protectedData';
-import {clearAuth} from '../actions/auth';
-import {clearAuthToken} from '../localStorage';
+import {fetchProtectedData} from '../actions/protectedData.js';
+import {clearAuth} from '../actions/auth.js';
+import {clearAuthToken} from '../localStorage.js';
 import icon from "../images/nav-icon.png";
 
 import { Menu, Image } from 'semantic-ui-react';

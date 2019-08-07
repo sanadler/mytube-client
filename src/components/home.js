@@ -1,14 +1,12 @@
 import React from 'react';
 import './App.css';
-import About from './about';
+import About from './about.js';
 import scroll from "../images/scroll-arrow.png";
 import './home.css';
 
 
 
 export default class Home extends React.Component {
-
-
     render(){
         return  (
           <div className="home-page">

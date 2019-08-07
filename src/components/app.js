@@ -1,13 +1,13 @@
 import React from 'react';
 import {Route, withRouter} from 'react-router-dom';
-import Home from './home';
-import SignUp from './signup';
-import LogIn from './login';
-import MyVideos from './myVideos';
-import Videos from './allVideos';
-import Footer from './footer';
-import Nav from './nav';
-import {refreshAuthToken} from '../actions/auth';
+import Home from './home.js';
+import SignUp from './signup.js';
+import LogIn from './login.js';
+import MyVideos from './myVideos.js';
+import Videos from './allVideos.js';
+import Footer from './footer.js';
+import Nav from './nav.js';
+import {refreshAuthToken} from '../actions/auth.js';
 import {connect} from 'react-redux';
 
 import './App.css';

@@ -1,10 +1,10 @@
 import React from 'react';
 import './videos.css';
-import {API_BASE_URL} from '../config';
+import {API_BASE_URL} from '../config.js';
 import { withRouter } from "react-router-dom";
-import requiresLogin from './requiresLogin';
+import requiresLogin from './requiresLogin.js';
 import {connect} from 'react-redux';
-import Video from './video';
+import Video from './video.js';
 
 export class MyVideos extends React.Component{
     constructor(props) {

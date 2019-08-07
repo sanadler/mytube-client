@@ -1,10 +1,10 @@
 import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
-import {registerUser} from '../actions/users';
-import {login} from '../actions/auth';
-import Input from './input';
+import {registerUser} from '../actions/users.js';
+import {login} from '../actions/auth.js';
+import Input from './input.js';
 import './signup.css';
-import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
+import {required, nonEmpty, matches, length, isTrimmed} from '../validators.js';
 const passwordLength = length({min: 10, max: 72});
 const matchesPassword = matches('password');
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import './videos.css';
-import Video from './video';
+import Video from './video.js';
 
 export default class VideosSection extends React.Component{
   constructor(props) {
