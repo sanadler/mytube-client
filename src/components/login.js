@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 
 import LoginForm from './loginForm.js';
 
+//login page, pulls in the login form and redirects to the dashboard if already logged in
 export function LogIn(props) {
     if (props.loggedIn) {
         return <Redirect to="/my-videos" />;

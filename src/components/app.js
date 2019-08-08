@@ -12,6 +12,7 @@ import { connect } from 'react-redux';
 
 import './App.css';
 
+//app .. sets routes, log ins, etc
 export class App extends React.Component {
     componentDidUpdate(prevProps) {
         if (!prevProps.loggedIn && this.props.loggedIn) {

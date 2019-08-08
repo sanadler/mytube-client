@@ -5,13 +5,13 @@ import scroll from "../images/scroll-arrow.png";
 import './home.css';
 
 
-
+//homepage, pulls in the about section and holds the homepage heading
 export default class Home extends React.Component {
   render() {
     return (
       <div className="home-page">
         <main role="main">
-          <div className="header">
+          <header role="banner" className="header">
             <section className="jumbotron text-center">
               <div className="container">
                 <div className="row">
@@ -23,7 +23,7 @@ export default class Home extends React.Component {
                 </div>
               </div>
             </section>
-          </div>
+          </header>
           <div className="home-page-info">
             <About />
           </div>

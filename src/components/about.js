@@ -2,6 +2,7 @@ import React from 'react';
 import Cards from './cards.js';
 import './cards.css';
 
+//about component for the landing page. tells what the app does
 function About() {
 	return (
 		<div className="about-page">

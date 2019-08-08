@@ -6,6 +6,10 @@ import { withRouter } from "react-router-dom";
 import requiresLogin from './requiresLogin.js';
 import { connect } from 'react-redux';
 
+//specific video cards
+//checks whether it is for all videos page or my videos page
+//handles adding a video to your dash/DB, delete, update
+//handles viewing the videos
 export class Video extends React.Component {
   addVideoToFavorites(video) {
     const newVideoId = video.id;

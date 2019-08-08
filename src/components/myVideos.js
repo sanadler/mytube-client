@@ -6,6 +6,8 @@ import requiresLogin from './requiresLogin.js';
 import { connect } from 'react-redux';
 import Video from './video.js';
 
+//user's dash page of videos they liked. 
+//pulls from the database in the server and handles filtering for specific users
 export class MyVideos extends React.Component {
   constructor(props) {
     super(props);
@@ -65,11 +67,9 @@ export class MyVideos extends React.Component {
         <div className="message message-default">Loading Page...</div>
       );
     } else {
-      const videos = this.state.videos;
       const allVideos = this.state.allVideos;
       const myVideos = this.state.myVideos;
       const filteredVideos = this.filterVideos();
-      console.log(videos);
       if (filteredVideos.length === 0) {
         body = (
           <div className="myVideos">

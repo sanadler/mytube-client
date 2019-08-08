@@ -1,5 +1,6 @@
 import React from 'react';
 
+//input fields for the sign up and login forms
 export default class Input extends React.Component {
     componentDidUpdate(prevProps) {
         if (!prevProps.meta.active && this.props.meta.active) {

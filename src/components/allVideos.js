@@ -3,6 +3,7 @@ import VideosSection from './videosSection';
 import Header from './header';
 import requiresLogin from './requiresLogin';
 
+//all videos dashboard, pulls the all videos header and the all videos video section
 function Videos() {
   return (
     <div className="vids">

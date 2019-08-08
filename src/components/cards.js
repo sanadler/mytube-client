@@ -2,6 +2,7 @@ import React from 'react';
 import { IoIosVideocam, IoIosSave } from "react-icons/io";
 import { MdCached } from "react-icons/md";
 
+//about cards, the three pieces of information about the app on the homepage
 function Cards() {
 	return (
 		<div className="about-cards-container">

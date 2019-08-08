@@ -8,6 +8,7 @@ import { required, nonEmpty, matches, length, isTrimmed } from '../validators.js
 const passwordLength = length({ min: 10, max: 72 });
 const matchesPassword = matches('password');
 
+//signup form for the signup page, handles errors and authentication checks
 export class SignUpForm extends React.Component {
     onSubmit(values) {
         const { username, password, firstName, lastName } = values;

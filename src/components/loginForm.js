@@ -6,6 +6,7 @@ import { required, nonEmpty } from '../validators.js';
 
 import './login.css';
 
+//login form for the login page, handles errors and authentication checks
 export class LogInForm extends React.Component {
     onSubmit(values) {
         return this.props.dispatch(login(values.username, values.password));

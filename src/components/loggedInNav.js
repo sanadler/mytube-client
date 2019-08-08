@@ -10,6 +10,7 @@ import './nav.css';
 
 import { Menu, Image } from 'semantic-ui-react';
 
+//navigation for the logged in part of the nav, user's dash, all videos, logout
 export class LoggedInNav extends React.Component {
 
   componentDidMount() {

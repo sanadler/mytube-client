@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 import { connect } from 'react-redux';
 import LoggedInNav from './loggedInNav.js';
 
+//full nav with check if user is logged in. if not logged in displays the signup/signin nav
 class Nav extends React.Component {
   render() {
     if (this.props.loggedIn) {

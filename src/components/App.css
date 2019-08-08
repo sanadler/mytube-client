@@ -40,3 +40,8 @@ p{
 h1{
   font-family: "Allerta Stencil"; font-style: normal; font-variant: normal; font-weight: 700;
 }
+
+footer {
+  padding: 1% 0;
+  background-color: #aaa;
+}

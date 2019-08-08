@@ -2,7 +2,8 @@ import React from 'react';
 import './videos.css';
 import Video from './video.js';
 
-
+//video section for all videos page
+//handles next and previous buttons to view more videos form the youtube API
 export default class VideosSection extends React.Component {
     constructor(props) {
         super(props);
