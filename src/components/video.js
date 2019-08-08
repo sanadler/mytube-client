@@ -121,7 +121,7 @@ export class Video extends React.Component {
           <div className="card">
             <div className="card-body">
               <h3>Title: {this.props.passVideo.title}</h3>
-              <Iframe url={`http://www.youtube.com/embed/${this.props.passVideo.videoId}`}
+              <Iframe url={`https://www.youtube.com/embed/${this.props.passVideo.videoId}`}
                 id="my-frame"
                 className="iframe"
                 display="initial"
@@ -145,7 +145,7 @@ export class Video extends React.Component {
                       </label>
                     </Modal.Header>
                     <Modal.Content image scrolling>
-                      <Iframe height="190px" size='medium' src={`http://www.youtube.com/embed/${this.props.passVideo.videoId}`} wrapped />
+                      <Iframe height="190px" size='medium' src={`https://www.youtube.com/embed/${this.props.passVideo.videoId}`} wrapped />
 
                       <Modal.Description>
                         <label>Video Description
