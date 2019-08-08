@@ -46,6 +46,11 @@ HTML, CSS, JavaScript, jQuery, Node.js, mongodb, React, Redux
 ### Demo
 
 <a href="https://fierce-cliffs-97625.herokuapp.com/">Live Demo</a>
+
+### Mock User
+username: test
+password: test123456
+
 ### Author
 
 Sarah Nadler
