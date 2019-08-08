@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, withRouter} from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import Home from './home.js';
 import SignUp from './signup.js';
 import LogIn from './login.js';
@@ -7,8 +7,8 @@ import MyVideos from './myVideos.js';
 import Videos from './allVideos.js';
 import Footer from './footer.js';
 import Nav from './nav.js';
-import {refreshAuthToken} from '../actions/auth.js';
-import {connect} from 'react-redux';
+import { refreshAuthToken } from '../actions/auth.js';
+import { connect } from 'react-redux';
 
 import './App.css';
 
@@ -47,10 +47,10 @@ export class App extends React.Component {
             <div className="app">
                 <Nav />
                 <Route exact path="/" component={Home} />
-                    <Route exact path="/signup" component={SignUp} />
-                    <Route exact path="/login" component={LogIn} />
-                    <Route exact path="/my-videos" component={MyVideos} />
-                    <Route exact path="/videos" component={Videos} />
+                <Route exact path="/signup" component={SignUp} />
+                <Route exact path="/login" component={LogIn} />
+                <Route exact path="/my-videos" component={MyVideos} />
+                <Route exact path="/videos" component={Videos} />
                 <Footer />
             </div>
         );

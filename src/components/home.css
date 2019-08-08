@@ -12,7 +12,7 @@
   
   .homepage-header { 
     font-family: "Allerta Stencil"; 
-    font-size: 150px; 
+    font-size: 450%; 
     font-style: normal; 
     font-variant: normal; 
     font-weight: 700; 
@@ -21,4 +21,15 @@
 
   .home-lead{
     margin-top: 9em;
+    font-weight: 700;
+  }
+
+  @media only screen and (min-width: 640px) {
+    .col-12{
+      width: 100%;
+    }
+    .homepage-header{
+      font-size: 700%; 
+    }
+
   }
