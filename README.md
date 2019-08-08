@@ -17,7 +17,7 @@ Login Page:
 ![alt text](https://github.com/sanadler/mytube-client/blob/master/screenshots/login.png)
 
 Sign Up Page:
-![alt text](https://github.com/sanadler/mytube-client/blob/master/screenshots/sign-up-page.png)
+![alt text](https://github.com/sanadler/mytube-client/blob/master/screenshots/sign-up.png)
 
 All Videos Page:
 ![alt text](https://github.com/sanadler/mytube-client/blob/master/screenshots/all-videos-page.png)
@@ -46,6 +46,11 @@ HTML, CSS, JavaScript, jQuery, Node.js, mongodb, React, Redux
 ### Demo
 
 <a href="https://fierce-cliffs-97625.herokuapp.com/">Live Demo</a>
+
+### Mock User
+* username: test
+* password: test123456
+
 ### Author
 
 Sarah Nadler
