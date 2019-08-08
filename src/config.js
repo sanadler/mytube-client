@@ -1,4 +1,2 @@
-export default {
-    API_BASE_URL: 'https://quiet-dawn-76362.herokuapp.com/api',
-    TOKEN_KEY: 'spongebob-auth-token',
-}
+export const API_BASE_URL =
+    process.env.REACT_APP_API_BASE_URL || 'https://quiet-dawn-76362.herokuapp.com/api';
