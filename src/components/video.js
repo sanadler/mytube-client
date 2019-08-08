@@ -91,7 +91,7 @@ export class Video extends React.Component {
           <div className="card">
             <div className="card-body">
               <h3>Title: {this.props.passVideo.snippet.localized.title}</h3>
-              <Iframe url={`http://www.youtube.com/embed/${this.props.passVideo.id}`}
+              <Iframe url={`https://www.youtube.com/embed/${this.props.passVideo.id}`}
                 id="my-frame"
                 className="iframe"
                 display="initial"
