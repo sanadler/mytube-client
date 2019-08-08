@@ -102,7 +102,6 @@ export class Video extends React.Component {
                     <Modal.Header>{this.props.passVideo.snippet.localized.title}</Modal.Header>
                     <Modal.Content image scrolling>
                       <Iframe height="190px" size='medium' src={`https://www.youtube.com/embed/${this.props.passVideo.id}`} wrapped />
-
                       <Modal.Description>
                         <p className="video-description" style={{ paddingBottom: 5 }}>{this.props.passVideo.snippet.localized.title}</p>
                       </Modal.Description>
