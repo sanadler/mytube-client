@@ -50,7 +50,9 @@ export class Video extends React.Component {
     return fetch(`${API_BASE_URL}/videos/${video.id}`, {
       method: 'put',
       headers: {
-        "Content-Type": "application/json"
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "text/plain"
+        // "Content-Type": "application/json"
       },
       body: JSON.stringify({
         id: video.id,
@@ -59,7 +61,7 @@ export class Video extends React.Component {
       })
     })
       .then(res => res.json())
-      .catch(error => alert(error))
+      .catch(error => console.log(error))
   }
 
 
