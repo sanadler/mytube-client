@@ -73,7 +73,6 @@ export class Video extends React.Component {
         "Content-Type": "application/json"
       },
     })
-      .then(res => res.json())
       .catch(error => alert(error))
 
   }
