@@ -47,7 +47,7 @@ export class Video extends React.Component {
     if (updateDescription === "") {
       updateDescription = video.description;
     }
-    fetch(`${API_BASE_URL}/videos/${video.id}`, {
+    return fetch(`${API_BASE_URL}/videos/${video.id}`, {
       method: 'put',
       headers: {
         "Content-Type": "application/json"
