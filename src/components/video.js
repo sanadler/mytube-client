@@ -58,6 +58,7 @@ export class Video extends React.Component {
         description: updateDescription
       })
     })
+      .then(res => res.json())
       .catch(error => alert(error))
   }
 
@@ -70,6 +71,7 @@ export class Video extends React.Component {
         "Content-Type": "application/json"
       },
     })
+      .then(res => res.json())
       .catch(error => alert(error))
 
   }
