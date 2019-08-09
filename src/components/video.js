@@ -70,7 +70,9 @@ export class Video extends React.Component {
     return fetch(`${API_BASE_URL}/videos/${id}`, {
       method: 'delete',
       headers: {
-        "Content-Type": "application/json"
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "text/plain"
+        // "Content-Type": "application/json"
       },
     })
       .then(res => res.json())
