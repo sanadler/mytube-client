@@ -51,8 +51,7 @@ export class Video extends React.Component {
       method: 'put',
       headers: {
         "Access-Control-Allow-Origin": "*",
-        "Content-Type": "text/plain"
-        // "Content-Type": "application/json"
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
         id: video.id,
@@ -71,8 +70,7 @@ export class Video extends React.Component {
       method: 'delete',
       headers: {
         "Access-Control-Allow-Origin": "*",
-        "Content-Type": "text/plain"
-        // "Content-Type": "application/json"
+        "Content-Type": "application/json"
       },
     })
       .then(res => res.json())
